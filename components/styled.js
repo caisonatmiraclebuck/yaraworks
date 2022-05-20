@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-
+// Defining style components
 const Theme = {
     colors: {
       bg: `#fff`,

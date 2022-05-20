@@ -5,19 +5,23 @@ import { Loader } from '../../components/loader';
 
 export default function User() {
     const router = useRouter()
+    //Getting slug value 
     const {slug} = router.query
 
     const [user, setUser] = useState({});
     const [isLoaded, setLoaded] = useState(false);
 
     useEffect(() => {
+        //Returning back if slug is undefined in first render
         if(!slug){
             return;
         }
+        //Converting slug to array to get user id
         const slugArr = slug.split("-");
         const uid = slugArr[2];
 
         const fetchUser = async () => {
+            // Calling single user API
             const response = await fetch(`/api/users/${uid}`, {
               method: "GET",
               headers: {

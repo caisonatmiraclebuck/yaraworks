@@ -10,6 +10,7 @@ export default function Home() {
 
     useEffect(() => {
         const fetchUsers = async () => {
+            // Calling users API
             const response = await fetch(`/api/users`, {
               method: "GET",
               headers: {
@@ -17,13 +18,14 @@ export default function Home() {
               },
             });
             const users = await response.json();
+            //Changing the users state
             setUsers(users.users);
             setLoaded(true);
         }
         fetchUsers();
     },[]);
 
-    
+    //Using Loader until api is fetched
     if(!isLoaded){
         return (
             <Container>
