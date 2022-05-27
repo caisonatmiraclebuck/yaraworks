@@ -7,7 +7,7 @@ export default function User() {
     const router = useRouter()
     //Getting slug value 
     const {slug} = router.query
-
+    //Defining the states
     const [user, setUser] = useState({});
     const [isLoaded, setLoaded] = useState(false);
 
@@ -29,9 +29,10 @@ export default function User() {
               },
             });
             const user = await response.json();
-            setUser(user.user);
-            setLoaded(true);
+            setUser(user.user);// Adding user data from api to user state
+            setLoaded(true);// Updating the isLoaded to true
         }
+        //Calling the fetchUsers() function
         fetchUser();
     },[slug]);
 

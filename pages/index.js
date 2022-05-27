@@ -4,7 +4,7 @@ import { Grid,Item,Container,Card,CardImage,CardText,Button } from '../component
 import { Loader } from '../components/loader';
 
 export default function Home() {
-    
+    //Defining the states
     const [users, setUsers] = useState([]);
     const [isLoaded, setLoaded] = useState(false);
 
@@ -19,9 +19,10 @@ export default function Home() {
             });
             const users = await response.json();
             //Changing the users state
-            setUsers(users.users);
-            setLoaded(true);
+            setUsers(users.users);//Adding user data to user state
+            setLoaded(true);//Updating the isLoaded state to true
         }
+        //Calling the fetchUsers() function
         fetchUsers();
     },[]);
 
